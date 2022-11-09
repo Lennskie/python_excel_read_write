@@ -36,8 +36,21 @@ def deviation_of_the_row(row):
         counter += above
     return(math.sqrt((counter/(len(row)-1))))
 
+
+def list_maker_deviation_3(lst):
+    lst = lst.values.flatten().tolist()
+    lst.pop(0)
+    lst.pop(len(lst)-1) #remove the average out of the df
+    lst.pop(len(lst)-1) #remove the deviation out of the df
+    return(lst)
+
 def deviation_of_the_row_3(row):
-    return deviation_of_the_row(row) * 3
+    row = list_maker_deviation_3(row)
+    counter = 0
+    for i in row:
+        above = (i-average(row))**2
+        counter += above
+    return((math.sqrt((counter/(len(row)-1))))*3)
 
 #cool calculations!
 df['average'] = df.apply(lambda row : average_of_the_row(row), axis = 1)
