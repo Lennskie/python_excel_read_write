@@ -1,5 +1,7 @@
 # python excel read/write example
 
+This program was custom made for calculating things quickly for a paper.
+
 ## installation
 >pip install openpxyl
 >
