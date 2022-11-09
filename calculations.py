@@ -2,6 +2,7 @@ import math
 import pandas as pd
 
 #read the file
+path='sample.xlsx'
 df = pd.read_excel('sample.xlsx')
 
 #define how to calculate the average
@@ -41,3 +42,6 @@ df['deviation'] = df.apply(lambda row : deviation_of_the_row(row), axis = 1)
 
 #print it for the user
 print(df)
+
+#save it to the same file again, on another page
+df.to_excel('output.xlsx')
