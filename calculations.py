@@ -44,4 +44,4 @@ df['deviation'] = df.apply(lambda row : deviation_of_the_row(row), axis = 1)
 print(df)
 
 #save it to the same file again, on another page
-df.to_excel('output.xlsx')
+#df.to_excel('output.xlsx')
