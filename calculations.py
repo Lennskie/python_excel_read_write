@@ -36,7 +36,7 @@ def deviation_of_the_row(row):
         counter += above
     return(math.sqrt((counter/(len(row)-1))))
 
-
+#list maker for the 3 times deviation
 def list_maker_deviation_3(lst):
     lst = lst.values.flatten().tolist()
     lst.pop(0)
@@ -44,6 +44,7 @@ def list_maker_deviation_3(lst):
     lst.pop(len(lst)-1) #remove the deviation out of the df
     return(lst)
 
+#the deviation times 3, needs to be rewritten because of the bad optimisation. (might fix later)
 def deviation_of_the_row_3(row):
     row = list_maker_deviation_3(row)
     counter = 0
@@ -52,10 +53,23 @@ def deviation_of_the_row_3(row):
         counter += above
     return((math.sqrt((counter/(len(row)-1))))*3)
 
+#simple list maker because it just needs the average and deviation later
+def list_maker_cv(lst):
+    lst = lst.values.flatten().tolist()
+    return(lst)
+
+#calculate the deviation
+def cv_of_the_row(row):
+    row = list_maker_cv(row)
+    deviation = row[len(row)-2]
+    average = row[len(row)-3]
+    return (deviation/average)*100
+
 #cool calculations!
 df['average'] = df.apply(lambda row : average_of_the_row(row), axis = 1)
 df['deviation'] = df.apply(lambda row : deviation_of_the_row(row), axis = 1)
 df['3 times deviation'] = df.apply(lambda row : deviation_of_the_row_3(row), axis = 1)
+df['CV'] = df.apply(lambda row : cv_of_the_row(row), axis = 1)
 
 #print it for the user
 print(df)
