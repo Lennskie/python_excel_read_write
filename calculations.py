@@ -36,12 +36,16 @@ def deviation_of_the_row(row):
         counter += above
     return(math.sqrt((counter/(len(row)-1))))
 
+def deviation_of_the_row_3(row):
+    return deviation_of_the_row(row) * 3
+
 #cool calculations!
 df['average'] = df.apply(lambda row : average_of_the_row(row), axis = 1)
 df['deviation'] = df.apply(lambda row : deviation_of_the_row(row), axis = 1)
+df['3 times deviation'] = df.apply(lambda row : deviation_of_the_row_3(row), axis = 1)
 
 #print it for the user
 print(df)
 
 #save it to the same file again, on another page
-#df.to_excel('output.xlsx')
+df.to_excel('output.xlsx')
