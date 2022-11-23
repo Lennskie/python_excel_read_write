@@ -8,11 +8,11 @@ This program was custom made for calculating things quickly for a paper.
 >pip install pandas
 
 ## explanation about the files
->calculations.py calculates row by row, and cannot have empty cells.
+>calculations.py calculates row by row, and cannot have empty cells. This program used sample.xlsx
 >
->legacy.py is a terminal application, having almost no automation. You manually add the numbers you want delimited by a space
+>legacy.py is a terminal application, having almost no automation. You manually add the numbers you want, delimited by a space
 >
->calculationsOfATable.py uses the sampleTable.xlsx file to merge rows & collums to make the calculations on a whole batch (can have empty cells).
+>calculationsOfATable.py uses the sampleTable.xlsx file to merge rows & collums to make the calculations on a whole batch (This excel file can have empty cells).
 
 Both calculations.py & lecagy.py are not that usefull anymore and can be slow. Some of the code I only got working for Python3.10. This means that you're best of useinng calculationsOfATable.py, but all was used for research purposes.
 
